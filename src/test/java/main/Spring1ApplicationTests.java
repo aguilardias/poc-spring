@@ -1,4 +1,4 @@
-package br.spring1;
+package main;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -24,8 +24,8 @@ public class Spring1ApplicationTests {
 
 	@Test
 	public void contextLoads() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andExpect(content().string(equalTo("teste1")));
+		mvc.perform(MockMvcRequestBuilders.get("/anuncio/lista").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andExpect(content().string(equalTo("teste1")));
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.spring1.entity;
+package anuncio.entity;
 
 public class Anuncio {
 

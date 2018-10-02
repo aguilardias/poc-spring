@@ -6,7 +6,7 @@
 	<groupId>br</groupId>
 	<artifactId>rest-anuncio-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>rest-anuncio-spring</name>
 	<description>Demo project for Spring Boot</description>

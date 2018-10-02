@@ -1,12 +1,12 @@
-package br.spring1.bc;
+package anuncio.bc;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.spring1.dao.AnuncioDAO;
-import br.spring1.entity.Anuncio;
+import anuncio.dao.AnuncioDAO;
+import anuncio.entity.Anuncio;
 
 @Service
 public class AnuncioBC {

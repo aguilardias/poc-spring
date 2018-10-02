@@ -1,11 +1,11 @@
-package br.spring1.dao;
+package anuncio.dao;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.spring1.entity.Anuncio;
+import anuncio.entity.Anuncio;
 
 @Repository
 public class AnuncioDAO {
