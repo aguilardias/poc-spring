@@ -1,9 +1,21 @@
 package br.anuncio.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Anuncio {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private String nome;
+
+	public Anuncio() {
+	}
 
 	public Anuncio(Long id, String nome) {
 		super();

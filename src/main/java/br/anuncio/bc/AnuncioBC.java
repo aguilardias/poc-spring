@@ -18,4 +18,8 @@ public class AnuncioBC {
 		return anuncioDAO.listarAnuncio();
 	}
 
+	public Iterable<Anuncio> listarAnuncioBanco() {
+		return anuncioDAO.listarAnuncioBanco();
+	}
+
 }
