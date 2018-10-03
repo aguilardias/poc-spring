@@ -1,5 +1,6 @@
 package br.util;
 
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(AnuncioDAO anuncioDAO) {
 		return args -> {
-			anuncioDAO.inserir(new Anuncio(1L, "teste1"));
+			anuncioDAO.salvar(new Anuncio(1L, "teste1: " + UUID.randomUUID()));
 			logger.info("Preloading 1");
 		};
 	}

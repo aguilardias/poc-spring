@@ -1,6 +1,6 @@
 package br.anuncio.bc;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class AnuncioBC {
 	@Autowired
 	private AnuncioDAO anuncioDAO;
 
-	public List<Anuncio> listarAnuncio() {
+	public Iterable<Anuncio> listarAnuncio() {
 		return anuncioDAO.listarAnuncio();
 	}
 
-	public Iterable<Anuncio> listarAnuncioBanco() {
-		return anuncioDAO.listarAnuncioBanco();
+	public Optional<Anuncio> obterAnuncio(Long id) {
+		return anuncioDAO.obterAnuncio(id);
 	}
 
 }

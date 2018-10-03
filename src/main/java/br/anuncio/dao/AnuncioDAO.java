@@ -1,7 +1,6 @@
 package br.anuncio.dao;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,16 +13,16 @@ public class AnuncioDAO {
 	@Autowired
 	AnuncioRepository anuncioRepository;
 
-	public List<Anuncio> listarAnuncio() {
-		return Arrays.asList(new Anuncio(1L, "carro"), new Anuncio(2L, "bicicleta"));
-	}
-
-	public Iterable<Anuncio> listarAnuncioBanco() {
+	public Iterable<Anuncio> listarAnuncio() {
 		return anuncioRepository.findAll();
 	}
 
-	public void inserir(Anuncio anuncio) {
+	public void salvar(Anuncio anuncio) {
 		anuncioRepository.save(anuncio);
+	}
+
+	public Optional<Anuncio> obterAnuncio(Long id) {
+		return anuncioRepository.findById(id);
 	}
 
 }
