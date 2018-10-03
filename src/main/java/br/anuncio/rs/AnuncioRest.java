@@ -1,4 +1,4 @@
-package anuncio.rs;
+package br.anuncio.rs;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import anuncio.bc.AnuncioBC;
-import anuncio.entity.Anuncio;
+import br.anuncio.bc.AnuncioBC;
+import br.anuncio.entity.Anuncio;
 
 @RestController
 @RequestMapping("anuncio")

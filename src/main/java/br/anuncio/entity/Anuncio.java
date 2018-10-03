@@ -1,4 +1,4 @@
-package anuncio.entity;
+package br.anuncio.entity;
 
 public class Anuncio {
 
