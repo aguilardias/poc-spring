@@ -11,7 +11,7 @@ import anuncio.entity.Anuncio;
 public class AnuncioDAO {
 
 	public List<Anuncio> listarAnuncio() {
-		return Arrays.asList(new Anuncio(1L, "carro2"), new Anuncio(2L, "bicicleta"));
+		return Arrays.asList(new Anuncio(1L, "carro"), new Anuncio(2L, "bicicleta"));
 	}
 
 }
