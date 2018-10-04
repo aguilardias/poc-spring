@@ -17,12 +17,16 @@ public class AnuncioDAO {
 		return anuncioRepository.findAll();
 	}
 
-	public void salvar(Anuncio anuncio) {
-		anuncioRepository.save(anuncio);
+	public Anuncio salvar(Anuncio anuncio) {
+		return anuncioRepository.save(anuncio);
 	}
 
 	public Optional<Anuncio> obterAnuncio(Long id) {
 		return anuncioRepository.findById(id);
+	}
+
+	public void removerPorId(Long id) {
+		anuncioRepository.deleteById(id);
 	}
 
 }

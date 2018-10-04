@@ -23,8 +23,9 @@ public class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(AnuncioDAO anuncioDAO) {
 		return args -> {
-			anuncioDAO.salvar(new Anuncio(1L, "teste1: " + UUID.randomUUID()));
-			logger.info("Preloading 1");
+			UUID randomUUID = UUID.randomUUID();
+			logger.info("gerando anuncio: " + randomUUID);
+			anuncioDAO.salvar(new Anuncio("teste: " + randomUUID));
 		};
 	}
 }
