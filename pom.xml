@@ -76,6 +76,34 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+
+		<!-- <dependency> <groupId>javax.jms</groupId> <artifactId>javax.jms-api</artifactId> 
+			<version>2.0.1</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>genericjms</artifactId>
+			<version>8.4.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/lib/tibjms-8.4.0.jar</systemPath>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<!-- <version>5.1.0.RELEASE</version> -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.jms/javax.jms-api -->
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
+			<!-- <version>2.0.1</version> -->
+		</dependency> 
+
+
+
 	</dependencies>
 
 	<build>
