@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tibco.tibjms.TibjmsConnectionFactory;
-
 import br.anuncio.bc.AnuncioBC;
 import br.anuncio.entity.Anuncio;
 import br.anuncio.exception.NegocioException;
@@ -27,8 +25,8 @@ public class AnuncioRest {
 	@Autowired
 	private AnuncioBC anuncioBC;
 
-	@Autowired
-	TibjmsConnectionFactory tibjmsConnectionFactory;
+	// @Autowired
+	// TibjmsConnectionFactory tibjmsConnectionFactory;
 
 	Logger logger = Logger.getLogger(AnuncioRest.class.getName());
 
