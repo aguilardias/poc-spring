@@ -53,4 +53,8 @@ public class AnuncioBC {
 		anuncioDAO.removerPorId(id);
 	}
 
+	public Anuncio obterAnuncioPorNome(String nome) {
+		return anuncioDAO.obterAnuncioPorNome(nome);
+	}
+
 }

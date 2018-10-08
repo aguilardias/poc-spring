@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.anuncio.bc.AnuncioBC;
@@ -38,6 +39,11 @@ public class AnuncioRest {
 	@GetMapping(value = "{id}")
 	public Anuncio anuncio(@PathVariable("id") Long id) {
 		return anuncioBC.obterAnuncio(id).orElseThrow(() -> new NegocioException("não existe"));
+	}
+
+	@GetMapping(value = "obter-por-nome")
+	public Anuncio obterAnuncioPorNome(@RequestParam(value = "nome") String nome) {
+		return anuncioBC.obterAnuncioPorNome(nome);
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

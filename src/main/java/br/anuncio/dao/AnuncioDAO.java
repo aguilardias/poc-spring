@@ -2,6 +2,10 @@ package br.anuncio.dao;
 
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +15,10 @@ import br.anuncio.entity.Anuncio;
 public class AnuncioDAO {
 
 	@Autowired
-	AnuncioRepository anuncioRepository;
+	private AnuncioRepository anuncioRepository;
+
+	@PersistenceContext
+	private EntityManager em;
 
 	public Iterable<Anuncio> listarAnuncio() {
 		return anuncioRepository.findAll();
@@ -27,6 +34,21 @@ public class AnuncioDAO {
 
 	public void removerPorId(Long id) {
 		anuncioRepository.deleteById(id);
+	}
+
+	public Anuncio obterAnuncioPorNome(String nome) {
+		String sql = "select a from Anuncio a where a.nome like '%" + nome + "%'";
+		TypedQuery<Anuncio> query = em.createQuery(sql, Anuncio.class);
+
+		query.setMaxResults(1);
+
+		try {
+			return query.getSingleResult();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 import br.anuncio.bc.AnuncioBC;
 import br.anuncio.dao.AnuncioDAO;
-import br.anuncio.entity.Anuncio;
 
 @Configuration
 public class LoadDatabase {
@@ -24,8 +23,8 @@ public class LoadDatabase {
 	CommandLineRunner initDatabase(AnuncioDAO anuncioDAO) {
 		return args -> {
 			UUID randomUUID = UUID.randomUUID();
-			logger.info("gerando anuncio: " + randomUUID);
-			anuncioDAO.salvar(new Anuncio("teste: " + randomUUID));
+			// logger.info("gerando anuncio: " + randomUUID);
+			// anuncioDAO.salvar(new Anuncio("teste: " + randomUUID));
 		};
 	}
 }
