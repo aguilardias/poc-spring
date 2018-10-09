@@ -1,4 +1,4 @@
-package br.jms;
+package br.config.jms;
 
 import java.util.logging.Logger;
 

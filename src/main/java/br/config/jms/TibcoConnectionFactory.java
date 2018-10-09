@@ -1,4 +1,4 @@
-package br.jms;
+package br.config.jms;
 
 import javax.jms.ConnectionFactory;
 
