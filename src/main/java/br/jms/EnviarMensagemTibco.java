@@ -15,6 +15,9 @@ public class EnviarMensagemTibco {
 	@Value("${app.jms.fila.envio}")
 	private String FILA_DESTINO;
 
+	@Value("${app.jms.ativo}")
+	private Boolean JMS_ATIVO;
+
 	Logger logger = Logger.getLogger(EnviarMensagemTibco.class.getName());
 
 	@Autowired
@@ -23,11 +26,13 @@ public class EnviarMensagemTibco {
 	@Bean
 	CommandLineRunner enviarMensagem() {
 		return args -> {
-			logger.info("enviarMensagem");
-			jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
+			if (JMS_ATIVO) {
+				logger.info("enviarMensagem");
+				jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
 
-			// Message receive = jmsTemplate.receive("destino");
-			// System.out.println("recebido em: " + receive);
+				// Message receive = jmsTemplate.receive("destino");
+				// System.out.println("recebido em: " + receive);
+			}
 		};
 	}
 }
