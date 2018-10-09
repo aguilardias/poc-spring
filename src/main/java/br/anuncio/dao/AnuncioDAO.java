@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.anuncio.entity.Anuncio;
+import br.anuncio.repository.AnuncioRepository;
 
 @Repository
 public class AnuncioDAO {

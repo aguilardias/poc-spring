@@ -1,4 +1,4 @@
-package br.anuncio.dao;
+package br.anuncio.repository;
 
 import java.util.List;
 
