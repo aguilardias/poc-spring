@@ -1,4 +1,4 @@
-package br.util;
+package br.config;
 
 import java.util.UUID;
 import java.util.logging.Logger;
