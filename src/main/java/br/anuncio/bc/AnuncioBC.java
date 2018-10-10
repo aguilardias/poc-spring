@@ -57,4 +57,8 @@ public class AnuncioBC {
 		return anuncioDAO.obterAnuncioPorNome(nome);
 	}
 
+	public void salvar(Anuncio anuncio) {
+		anuncioDAO.salvar(anuncio);
+	}
+
 }

@@ -1,16 +1,15 @@
-package br.config.jms;
+package br.init;
 
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 
 @Configuration
-public class EnviarMensagemTibco {
+public class EnviarMensagemTibco implements CommandLineRunner {
 
 	@Value("${app.jms.fila.envio}")
 	private String FILA_DESTINO;
@@ -23,16 +22,14 @@ public class EnviarMensagemTibco {
 	@Autowired
 	JmsTemplate jmsTemplate;
 
-	@Bean
-	CommandLineRunner enviarMensagem() {
-		return args -> {
-			if (JMS_ATIVO) {
-				logger.info("enviarMensagem");
-				jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
+	@Override
+	public void run(String... args) throws Exception {
+		if (JMS_ATIVO) {
+			logger.info("enviarMensagem");
+			jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
 
-				// Message receive = jmsTemplate.receive("destino");
-				// System.out.println("recebido em: " + receive);
-			}
-		};
+			// Message receive = jmsTemplate.receive("destino");
+			// System.out.println("recebido em: " + receive);
+		}
 	}
 }
