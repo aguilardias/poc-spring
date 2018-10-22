@@ -1,8 +1,10 @@
 package br.anuncio.bc;
 
+import java.io.File;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import org.demoiselle.signer.core.CertificateManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +61,14 @@ public class AnuncioBC {
 
 	public void salvar(Anuncio anuncio) {
 		anuncioDAO.salvar(anuncio);
+	}
+	
+	public void analisarCertificado() {
+//		CertificateManager cm = new CertificateManager(x509);
+		
+		//File certFile = new File("classpath:certificados/certificate.pem");
+		File certFile = new File("/home/05032627909/git/poc-spring/src/main/resources/certificados/server.pem");
+		CertificateManager cm = new CertificateManager(certFile);
 	}
 
 }
