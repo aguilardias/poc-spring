@@ -1,8 +1,10 @@
 package br.anuncio.rest;
 
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.anuncio.bc.AnuncioBC;
 import br.anuncio.entity.Anuncio;
 import br.anuncio.exception.NegocioException;
+import br.util.ClasseBean;
 
 @RestController
 @RequestMapping("anuncio")
@@ -28,11 +31,22 @@ public class AnuncioRest {
 
 	// @Autowired
 	// TibjmsConnectionFactory tibjmsConnectionFactory;
+	
+	@Autowired
+	private ClasseBean classeBean;
+	
+	@Bean
+	public ClasseBean obterClasseBean() {
+		ClasseBean classeBean = new ClasseBean();
+		classeBean.nome = UUID.randomUUID().toString();
+		return classeBean;
+	}
 
 	Logger logger = Logger.getLogger(AnuncioRest.class.getName());
 
 	@GetMapping
 	public Iterable<Anuncio> listarAnuncio() {
+		System.out.println(classeBean.nome);
 		return anuncioBC.listarAnuncio();
 	}
 
