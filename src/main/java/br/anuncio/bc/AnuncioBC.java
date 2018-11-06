@@ -62,13 +62,30 @@ public class AnuncioBC {
 	public void salvar(Anuncio anuncio) {
 		anuncioDAO.salvar(anuncio);
 	}
-	
+
 	public void analisarCertificado() {
-//		CertificateManager cm = new CertificateManager(x509);
-		
-		//File certFile = new File("classpath:certificados/certificate.pem");
-		File certFile = new File("/home/05032627909/git/poc-spring/src/main/resources/certificados/server.pem");
-		CertificateManager cm = new CertificateManager(certFile);
+		//		CertificateManager cm = new CertificateManager(x509);
+
+		//		File certFile = new File("classpath:certificados/certificate.pem");
+		File certFile = new File("/home/05032627909/Downloads/x509/server.crt");
+		//		CertificateManager cm = new CertificateManager(certFile);
+		CertificateManager 		cm = 		new 		CertificateManager 		("z0x9c8v736");
+
+		//		try{
+		//			KeyStoreLoader loader = KeyStoreLoaderFactory.factoryKeyStoreLoader();
+		//			KeyStore keyStore = loader.getKeyStore();
+		//			System.out.println(keyStore);
+		//		}catch(DriverNotAvailableException e){
+		//			logger.info("Drivers de certificados não foram encontrados: " + e.getMessage());
+		//		}catch (InvalidPinException e){
+		//			logger.severe("Senha do certificado nula ou inválida:" + e.getMessage());
+		//		}catch(KeyStoreLoaderException e){
+		//			logger.info("Não foi identificado um driver compatível com o hardware: " + e.getMessage());
+		//		}catch(ProviderException e){
+		//			logger.severe("Token removido:" + e.getMessage());
+		//		}catch(Exception e){
+		//			logger.severe(e.getMessage());
+		//		}
 	}
 
 }
