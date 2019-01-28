@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ import br.util.ClasseBean;
 
 @RestController
 @RequestMapping("anuncio")
-// @CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 public class AnuncioRest {
 
 	@Autowired
