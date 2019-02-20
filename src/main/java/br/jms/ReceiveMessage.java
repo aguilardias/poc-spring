@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReceiveMessage {
 
-	@JmsListener(destination = "${app.jms.fila.envio}")
+//	@JmsListener(destination = "${app.jms.fila.envio}")
 	public void receberMensagem(TextMessage mensagem) {
 		System.out.println(mensagem);
 

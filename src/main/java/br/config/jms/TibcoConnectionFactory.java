@@ -20,15 +20,15 @@ public class TibcoConnectionFactory {
 	@Value("${app.jms.password}")
 	private String PASSWORD;
 
-	@Bean
-	public ConnectionFactory connectionFactory() {
-
-		TibjmsQueueConnectionFactory connectionFactory = new TibjmsQueueConnectionFactory(JMS_URL);
-		connectionFactory.setUserName(USERNAME);
-		connectionFactory.setUserPassword(PASSWORD);
-
-		return connectionFactory;
-	}
+//	@Bean
+//	public ConnectionFactory connectionFactory() {
+//
+//		TibjmsQueueConnectionFactory connectionFactory = new TibjmsQueueConnectionFactory(JMS_URL);
+//		connectionFactory.setUserName(USERNAME);
+//		connectionFactory.setUserPassword(PASSWORD);
+//
+//		return connectionFactory;
+//	}
 
 	// Serialize message content to json using TextMessage
 	// @Bean

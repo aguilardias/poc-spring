@@ -19,14 +19,14 @@ public class EnviarMensagemTibco implements CommandLineRunner {
 
 	Logger logger = Logger.getLogger(EnviarMensagemTibco.class.getName());
 
-	@Autowired
-	JmsTemplate jmsTemplate;
+//	@Autowired
+//	JmsTemplate jmsTemplate;
 
 	@Override
 	public void run(String... args) throws Exception {
 		if (JMS_ATIVO) {
 			logger.info("enviarMensagem");
-			jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
+//			jmsTemplate.convertAndSend(FILA_DESTINO, "mensagem1");
 
 			// Message receive = jmsTemplate.receive("destino");
 			// System.out.println("recebido em: " + receive);
