@@ -1,26 +1,40 @@
 package br.anuncio.bc;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 import org.demoiselle.signer.core.CertificateManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import br.anuncio.dao.AnuncioDAO;
 import br.anuncio.entity.Anuncio;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class AnuncioBC {
 
 	@Autowired
 	private AnuncioDAO anuncioDAO;
+	
+	
 
-	Logger logger = Logger.getLogger(AnuncioBC.class.getName());
 
 	public Iterable<Anuncio> listarAnuncio() {
-		return anuncioDAO.listarAnuncio();
+		Iterable<Anuncio> lista = anuncioDAO.listarAnuncio();
+
+		Arrays.asList("").forEach(a -> tratar(a));
+		
+		return lista;
+	}
+
+	private void tratar(String a) {
+		// TODO Auto-generated method stub
 	}
 
 	public Optional<Anuncio> obterAnuncio(Long id) {
@@ -28,27 +42,27 @@ public class AnuncioBC {
 	}
 
 	public void alterarAnuncio(Anuncio anuncio) {
-		logger.info("alterarAnuncio.inicio");
-		logger.info("Anuncio recebido: " + anuncio);
+		log.info("alterarAnuncio.inicio");
+		log.info("Anuncio recebido: " + anuncio);
 		Optional<Anuncio> optional = anuncioDAO.obterAnuncio(anuncio.getId());
 		if (optional.isPresent()) {
 			Anuncio anuncioParaAlteracao = optional.get();
-			logger.info("Anuncio a ser alterado: " + anuncioParaAlteracao);
+			log.info("Anuncio a ser alterado: " + anuncioParaAlteracao);
 			anuncioParaAlteracao.setNome(anuncio.getNome());
 			anuncioParaAlteracao.setQuantidade(anuncio.getQuantidade());
 			anuncioParaAlteracao.setDataAnuncio(anuncio.getDataAnuncio());
 			Anuncio anuncioAlterado = anuncioDAO.salvar(anuncioParaAlteracao);
-			logger.info("Anuncio alterado: " + anuncioAlterado);
+			log.info("Anuncio alterado: " + anuncioAlterado);
 		}
-		logger.info("alterarAnuncio.fim");
+		log.info("alterarAnuncio.fim");
 	}
 
 	public void inserirAnuncio(Anuncio anuncio) {
-		logger.info("inserirAnuncio.inicio");
-		logger.info("Anuncio recebido: " + anuncio);
+		log.info("inserirAnuncio.inicio");
+		log.info("Anuncio recebido: " + anuncio);
 		Anuncio anuncioInserido = anuncioDAO.salvar(anuncio);
-		logger.info("Anuncio inserido: " + anuncioInserido);
-		logger.info("inserirAnuncio.fim");
+		log.info("Anuncio inserido: " + anuncioInserido);
+		log.info("inserirAnuncio.fim");
 	}
 
 	public void removerAnuncio(Long id) {
