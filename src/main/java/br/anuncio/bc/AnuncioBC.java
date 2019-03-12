@@ -1,15 +1,11 @@
 package br.anuncio.bc;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Optional;
 
 import org.demoiselle.signer.core.CertificateManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
 import br.anuncio.dao.AnuncioDAO;
 import br.anuncio.entity.Anuncio;
@@ -21,20 +17,11 @@ public class AnuncioBC {
 
 	@Autowired
 	private AnuncioDAO anuncioDAO;
-	
-	
-
 
 	public Iterable<Anuncio> listarAnuncio() {
 		Iterable<Anuncio> lista = anuncioDAO.listarAnuncio();
 
-		Arrays.asList("").forEach(a -> tratar(a));
-		
 		return lista;
-	}
-
-	private void tratar(String a) {
-		// TODO Auto-generated method stub
 	}
 
 	public Optional<Anuncio> obterAnuncio(Long id) {
@@ -78,28 +65,30 @@ public class AnuncioBC {
 	}
 
 	public void analisarCertificado() {
-		//		CertificateManager cm = new CertificateManager(x509);
+		// CertificateManager cm = new CertificateManager(x509);
 
-		//		File certFile = new File("classpath:certificados/certificate.pem");
+		// File certFile = new File("classpath:certificados/certificate.pem");
 		File certFile = new File("/home/05032627909/Downloads/x509/server.crt");
-		//		CertificateManager cm = new CertificateManager(certFile);
-		CertificateManager 		cm = 		new 		CertificateManager 		("z0x9c8v736");
+		// CertificateManager cm = new CertificateManager(certFile);
+		CertificateManager cm = new CertificateManager("z0x9c8v736");
 
-		//		try{
-		//			KeyStoreLoader loader = KeyStoreLoaderFactory.factoryKeyStoreLoader();
-		//			KeyStore keyStore = loader.getKeyStore();
-		//			System.out.println(keyStore);
-		//		}catch(DriverNotAvailableException e){
-		//			logger.info("Drivers de certificados não foram encontrados: " + e.getMessage());
-		//		}catch (InvalidPinException e){
-		//			logger.severe("Senha do certificado nula ou inválida:" + e.getMessage());
-		//		}catch(KeyStoreLoaderException e){
-		//			logger.info("Não foi identificado um driver compatível com o hardware: " + e.getMessage());
-		//		}catch(ProviderException e){
-		//			logger.severe("Token removido:" + e.getMessage());
-		//		}catch(Exception e){
-		//			logger.severe(e.getMessage());
-		//		}
+		// try{
+		// KeyStoreLoader loader = KeyStoreLoaderFactory.factoryKeyStoreLoader();
+		// KeyStore keyStore = loader.getKeyStore();
+		// System.out.println(keyStore);
+		// }catch(DriverNotAvailableException e){
+		// logger.info("Drivers de certificados não foram encontrados: " +
+		// e.getMessage());
+		// }catch (InvalidPinException e){
+		// logger.severe("Senha do certificado nula ou inválida:" + e.getMessage());
+		// }catch(KeyStoreLoaderException e){
+		// logger.info("Não foi identificado um driver compatível com o hardware: " +
+		// e.getMessage());
+		// }catch(ProviderException e){
+		// logger.severe("Token removido:" + e.getMessage());
+		// }catch(Exception e){
+		// logger.severe(e.getMessage());
+		// }
 	}
 
 }
