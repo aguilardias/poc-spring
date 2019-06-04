@@ -32,10 +32,10 @@ public class AnuncioRest {
 
 	// @Autowired
 	// TibjmsConnectionFactory tibjmsConnectionFactory;
-	
+
 	@Autowired
 	private ClasseBean classeBean;
-	
+
 	@Bean
 	public ClasseBean obterClasseBean() {
 		ClasseBean classeBean = new ClasseBean();
@@ -55,7 +55,7 @@ public class AnuncioRest {
 	public Anuncio anuncio(@PathVariable("id") Long id) {
 		return anuncioBC.obterAnuncio(id).orElseThrow(() -> new NegocioException("não existe"));
 	}
-	
+
 	@GetMapping(value = "certificado")
 	public String certificado() {
 		anuncioBC.analisarCertificado();
